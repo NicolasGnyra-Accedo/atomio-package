@@ -69,11 +69,10 @@ repository:
         match:"(?i:\\b([0-9]+|false|invalid|true)\\b)"
     methods:
         name:"storage.type.brightscript"
-        match:"(?=\\.).[^\\(\\,|\\.|\n|\\s|\\)]*(?=\\()"
+        match:"(?!\\.).[^\\(\\,|\\.|\n|\\s|\\)]*(?=\\()"
     brackets:
         name:"variable.language.brightscript"
         match:"({|}|:|\\[|\\])"
     comment2:
         name:"comment.line.apostrophe.brightscript"
         match:"(').*$\n?"
-
