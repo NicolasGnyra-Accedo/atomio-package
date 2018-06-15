@@ -9,10 +9,21 @@ foldingStartMarker: "(?i:\\b(for|for each|function|if|sub|while)\\b)"
 foldingStopMarker: "(?i:\\b(end|end for|end function|end if|end sub|end while|next)\\b)"
 patterns: [
     {
-        include: "#comment"
+        begin: "\""
+        end: "\""
+        name: "string.quoted.double.brightscript"
+        patterns: [
+          {
+            match: "\\\\."
+            name: "constant.character.escape.brightscript"
+          }
+          {
+            include: "#sdk1_components"
+          }
+        ]
     }
     {
-        include: "#sdk1_components"
+        include: "#comment"
     }
     {
         include: "#string"
@@ -37,9 +48,6 @@ patterns: [
     }
     {
         include: "#brackets"
-    }
-    {
-        include: "#comment2"
     }
 ]
 repository:
@@ -73,6 +81,3 @@ repository:
     brackets:
         name:"variable.language.brightscript"
         match:"({|}|:|\\[|\\])"
-    comment2:
-        name:"comment.line.apostrophe.brightscript"
-        match:"(').*$\n?"
