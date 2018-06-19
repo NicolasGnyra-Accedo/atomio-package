@@ -1,7 +1,7 @@
 {
   "name": "roku-atom",
-  "description": "Roku Package for an AtomIO (BrightScript, RSG, Deploy).",
-  "repository": "https://github.com/NicolasGnyra-Accedo/atomio-package",
+  "description": "Roku package for Atom with support for BrightScript, Roku SceneGraph, and deploying to Roku devices.",
+  "repository": "https://github.com/NicolasGnyra-Accedo/roku-atom",
   "version": "1.0.1",
   "license": "MIT",
   "activationCommands": {
