@@ -1,6 +1,8 @@
 {
     "name": "roku-atom",
     "description": "Roku Package for an AtomIO (BrightScript, RSG, Deploy).",
+    "repository": "https://github.com/NicolasGnyra-Accedo/atomio-package",
+    "version": "0.0.0",
     "license": "MIT",
     "activationCommands": {
         "atom-workspace": "atom_roku:rokuDeploy"
@@ -15,6 +17,5 @@
     },
     "main": "./lib/atom_roku",
     "readme": "Roku Atom Package",
-    "readmeFilename": "README.md",
-    "version": "0.0.0"
+    "readmeFilename": "README.md"
 }
