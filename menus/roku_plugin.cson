@@ -3,7 +3,7 @@
   'atom-text-editor': [
     {
       'label': 'Deploy to Roku'
-      'command': 'atom_roku:rokuDeploy'
+      'command': 'roku-atom:rokuDeploy'
     }
   ]
 'menu': [
@@ -14,7 +14,7 @@
       'submenu': [
         {
           'label': 'Deploy'
-          'command': 'atom_roku:rokuDeploy'
+          'command': 'roku-atom:rokuDeploy'
         }
       ]
     ]
