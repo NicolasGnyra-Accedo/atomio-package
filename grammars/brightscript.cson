@@ -5,8 +5,8 @@ fileTypes: [
     "bs"
 ]
 scopeName: "source.brightscript"
-foldingStartMarker: "(?i:\\b(for|for each|function|if|sub|while)\\b)"
-foldingStopMarker: "(?i:\\b(end|end for|end function|end if|end sub|end while|next)\\b)"
+foldingStartMarker: "(?i:\\b(for|for each|function|if|sub|while|#if)\\b)"
+foldingStopMarker: "(?i:\\b(end|end for|end function|end if|end sub|end while|next|#end if)\\b)"
 patterns: [
     {
         begin: "\""
@@ -25,6 +25,18 @@ patterns: [
                 name: "keyword.control.brightscript"
             "2":
                 name: "comment.line.rem.brightscript"
+    }
+    {
+        name: "punctuation.definition.italic.brightscript"
+        match: "#(?i:const|if|else if|else|end if)\\b"
+    }
+    {
+        match: "(#(?i:error))\\s(.*)$"
+        captures:
+            "1":
+                name: "punctuation.definition.italic.brightscript"
+            "2":
+                name: "keyword.operator.brightscript"
     }
     {
         include: "#comment"
@@ -65,6 +77,9 @@ patterns: [
         include: "#utility_functions"
     }
     {
+        include: "#string_functions"
+    }
+    {
         include: "#methods"
     }
 ]
@@ -83,28 +98,25 @@ repository:
         match: "\"(?:[^\"\\\\]+|\\\\.)*\""
     program_statements:
         name: "keyword.control.brightscript"
-        match: "(?i:\\b(as|each|else|end|end for|end function|end if|end sub|end while|for|for each|function|if|in|next|return|step|stop|sub|then|to|while|and|not|or)\\b)"
-    sdk2_attributes:
-        name: "support.function.component.brightscript"
-        match: "(?i:\\b\.(MaxVideoDecodeResolution|active|addItemSpacingAfterChild|animateToItem|audioFormat|audioTrack|availableAudioTracks|availableSubtitleTracks|backExitsScene|backgroundColor|backgroundURI|backgroundUri|basePosterSize|bifDisplay|bitmapHeight|bitmapWidth|blendColor|bufferingBar|bufferingStatus|bufferingTextColor|bulletText|bulletTextColor|bulletTextFont|busySpinner|buttonFocused|buttonGroup|buttonHeight|buttonSelected|buttons|caption1Color|caption1Font|caption1NumLines|caption2Color|caption2Font|caption2NumLines|captionBackgroundBitmapUri|captionHorizAlignment|captionLineSpacing|captionVertAlignment|catalog|cgms|change|checkOnSelect|checkedIconUri|checkedItem|checkedState|childRenderOrder|clippingRect|clockColor|clockText|clockwise|close|color|columnSpacings|columnWidths|command|completedStreamInfo|content|contentIndex|contentIsPlaylist|control|createNextPanelIndex|createNextPanelOnItemFocus|cursorPosition|delay|deltaOrder|dialog|displayPartialLines|dividerUri|drawFocusFeedback|drawFocusFeedbackOnTop|duration|easeFunction|easeInPercent|easeOutPercent|ellipsisText|ellipsizeOnBoundary|enableCaptionScrolling|enableScreenSaverWhilePlaying|enableTrickPlay|enableUI|errorCode|errorMessage|errorMsg|failedBitmapOpacity|failedBitmapUri|fakeServer|fieldToInterp|fire|fixedLayout|focusBitmapBlendColor|focusBitmapUri|focusButton|focusColumn|focusFootprintBitmapUri|focusFootprintBlendColor|focusRow|focusable|focusedCheckedIconUri|focusedChild|focusedColor|focusedFont|focusedIconUri|focusedKeyColor|focusedTextColor|focusedTextFont|focusedUncheckedIconUri|font|fraction|functionName|globalCaptionMode|goBackCount|graphicUri|grid|hasNextPanel|height|hintText|hintTextColor|horizAlign|horizAlignment|horizFocusAnimationStyle|iconUri|id|imageWellBitmapUri|inheritParentOpacity|inheritParentTransform|isFullScreen|isGoingBack|isOffscreenLeft|isTextEllipsized|itemClippingRect|itemComponentName|itemFocused|itemSelected|itemSize|itemSpacing|itemSpacings|itemUnfocused|jumpToItem|key|keyColor|keyValue|keyboard|keyboardBitmapUri|layoutDirection|leftDividerUri|leftDividerVertOffset|leftLabel|leftOnly|leftOrientation|leftPosition|lineSpacing|list|loadDisplayMode|loadHeight|loadStatus|loadSync|loadWidth|loadingBitmapOpacity|loadingBitmapUri|logoBaselineOffset|logoUri|loop|lowerCase|maskBitmapHeight|maskBitmapWidth|maskOffset|maskSize|maskUri|maxLines|maxTextLength|maxWidth|message|messageColor|messageFont|minWidth|mute|nextContentIndex|nextPanel|notificationInterval|numColumns|numLines|numPanels|numRenderPasses|numRows|opacity|optionsAvailable|optionsColor|optionsDialog|optionsDimColor|optionsIconColor|optionsIconDimColor|order|orderStatus|overhang|overhangTitle|panelSet|panelSize|pauseBufferEnd|pauseBufferOverflow|pauseBufferStart|pin|pinDisplayBitmapUri|pinDisplayTextColor|pinLength|pinPad|position|poster|posterDisplayMode|privacyHintColor|purchases|renderPass|repeat|repeatCount|requestedUserData|retrievingBar|retrievingTextColor|rightDividerUri|rightDividerVertOffset|rightJustify|rightLabel|rotation|rowHeights|rowSpacings|scale|scaleRotateCenter|scrollSpeed|scrollbarThumbBitmapUri|scrollbarTrackBitmapUri|sectionDividerBitmapUri|sectionDividerFont|sectionDividerHeight|sectionDividerLeftOffset|sectionDividerMinWidth|sectionDividerSpacing|sectionDividerTextColor|sectionDividerWidth|secureMode|seek|selectButtonMovesPanelForward|showBackgroundForEmptyCaptions|showClock|showFocusFootprint|showOptions|showPinDisplay|showSectionLabels|showTextEditBox|size|slideDuration|spinInterval|state|storeCatalog|streamInfo|streamingSegment|subtitleTrack|text|textColor|textEditBox|textFont|textHorizAlign|timeToStartStreaming|timedMetaData|timedMetaDataSelectionKeys|title|titleColor|translation|trickPlayBar|truncateOnDelimiter|uncheckedIconUri|uri|useAtlas|userData|vertAlign|vertAlignment|vertFocusAnimationStyle|videoFormat|visible|wasClosed|width|wordBreakChars|wrap|wrapDividerBitmapUri|wrapDividerHeight|wrapDividerWidth)\\b)"
+        match: "(?i:\\b(as|each|else|end for|end function|end if|end sub|end while|for|for each|function|if|in|next|return|step|stop|sub|then|to|while|and|not|or|end|dim|stop|goto|print)\\b)"
     constants:
         name: "constant.numeric.brightscript"
         match: "(?i:\\b([0-9]+|false|invalid|true)\\b)"
     methods:
         name: "support.function.any-method.brightscript"
-        match: "(?i:[A-Z_][A-Z0-9_]*)(?=\\()"
+        match: "\\b(?i:[A-Z_][A-Z0-9_]*)(?=\\()"
     types:
         name: "support.type.brightscript"
         match: "(?i:\\b(Boolean|Integer|LongInteger|Float|Double|String|Object|Function|Interface|Dynamic)\\b)"
     runtime_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:CreateObject|Type|GetGlobalAA|Box|Run|Run|Eval|GetLastRunCompileError|GetLastRunRuntimeError)\\b"
+        match: "\\b(?i:CreateObject|Type|GetGlobalAA|Box|Run|Run|Eval|GetLastRunCompileError|GetLastRunRuntimeError)(?=\\()"
     utility_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:Sleep|Wait|GetInterface|FindMemberFunction|UpTime|RebootSystem|ListDir|ReadAsciiFile|WriteAsciiFile|CopyFile|MoveFile|MatchFiles|DeleteFile|DeleteDirectory|CreateDirectory|FormatDrive|StrToI|RunGarbageCollector|ParseJson|FormatJson|Tr)\\b"
+        match: "\\b(?i:Sleep|Wait|GetInterface|FindMemberFunction|UpTime|RebootSystem|ListDir|ReadAsciiFile|WriteAsciiFile|CopyFile|MoveFile|MatchFiles|DeleteFile|DeleteDirectory|CreateDirectory|FormatDrive|StrToI|RunGarbageCollector|ParseJson|FormatJson|Tr)(?=\\()"
     string_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:UCase|LCase|Asc|Chr|Instr|Left|Len|Mid|Right|Str|StrI|StrI|String|StringI|Val|Val|Substitute)\\b"
+        match: "\\b(?i:UCase|LCase|Asc|Chr|Instr|Left|Len|Mid|Right|Str|StrI|StrI|String|StringI|Val|Val|Substitute)(?=\\()"
     math_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:Abs|Atn|Cdbl|Cint|Cos|Csng|Exp|Fix|Int|Log|Rnd|Rnd|Sgn|Sgn|Sin|Sqr|Tan)\\b"
+        match: "\\b(?i:Abs|Atn|Cdbl|Cint|Cos|Csng|Exp|Fix|Int|Log|Rnd|Rnd|Sgn|Sgn|Sin|Sqr|Tan)(?=\\()"
