@@ -1,30 +1,28 @@
-# atomio-package
+# Roku Atom
 The package for Atom IO Text Editor
 
- - [Instructions](../master/documentation/README.md)
-
- - Features
-   - Full Brightscript syntax hightlight support.
+## Features
+   - Full BrightScript syntax highlight support.
    - Autocompletion of SceneGraph components XML layout.
    - Roku autocompletion of SDK components, fields, global functions, etc.
-   - If/For/While/etc autoclosing feature.
+   - If/For/While/etc. autoclosing feature.
    - Code analysis for debug breakpoints on deploy.
    - Deploy to Roku box from editor.
 
- - Preview
+## Preview
 
 **General overview:** Syntax highlighting, Deploy, etc.
 
-![Atom IO](../master/documentation/deploy.gif "Atom IO")
+![Deploy](documentation/deploy.gif "Deploy")
 
-**Code sample:** foreach autocomplete.
+**Code sample:** for-each autocomplete
 
-![Atom IO](../master/documentation/for_each.gif "Atom IO")
+![For Each](documentation/for_each.gif "For Each")
 
-**Code sample:** while loop autocomplete.
+**Code sample:** while loop autocomplete
 
-![Atom IO](../master/documentation/while.gif "Atom IO")
+![While](documentation/while.gif "While")
 
-**Code sample:** global functions autocomlete.
+**Code sample:** global functions autocomplete
 
-![Atom IO](../master/documentation/global_functions.gif "Atom IO")
+![Global Functions](documentation/global_functions.gif "Global Functions")
