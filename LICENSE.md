@@ -1,6 +1,6 @@
 MIT License
 
-The Atom Package and associated documentation files (the “Software”) are Copyright (c) 2017 Roku, Inc.
+Copyright (c) 2017-2018 Roku, Inc. and contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
