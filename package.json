@@ -2,7 +2,7 @@
   "name": "roku-atom",
   "description": "Roku package for Atom with support for BrightScript, Roku SceneGraph, and deploying to Roku devices.",
   "repository": "https://github.com/NicolasGnyra-Accedo/roku-atom",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "activationCommands": {
     "atom-workspace": "roku-atom:rokuDeploy"
