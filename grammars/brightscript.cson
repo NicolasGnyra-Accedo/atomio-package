@@ -1,23 +1,12 @@
 name: "BrightScript"
-comment: "BRS Language"
+comment: "BrightScript Language"
 fileTypes: [
     "brs"
-    "bs"
 ]
 scopeName: "source.brightscript"
 foldingStartMarker: "(?i:\\b(for|for each|function|if|sub|while|#if)\\b)"
 foldingStopMarker: "(?i:\\b(end|end for|end function|end if|end sub|end while|next|#end if)\\b)"
 patterns: [
-    {
-        begin: "\""
-        end: "\""
-        name: "string.quoted.double.brightscript"
-        patterns: [
-          {
-            include: "#sdk1_components"
-          }
-        ]
-    }
     {
         match: "^\\s*?(?i:(rem)\\s)(.*)$\\n?"
         captures:
@@ -25,6 +14,10 @@ patterns: [
                 name: "keyword.control.brightscript"
             "2":
                 name: "comment.line.rem.brightscript"
+    }
+    {
+        match: "'.*$\\n?"
+        name: "comment.line.apostrophe.brightscript"
     }
     {
         name: "punctuation.definition.italic.brightscript"
@@ -37,12 +30,6 @@ patterns: [
                 name: "punctuation.definition.italic.brightscript"
             "2":
                 name: "keyword.operator.brightscript"
-    }
-    {
-        include: "#comment"
-    }
-    {
-        include: "#string"
     }
     {
         include: "#operators"
@@ -82,20 +69,21 @@ patterns: [
     {
         include: "#methods"
     }
+    {
+        begin: "\""
+        end: "\""
+        name: "string.quoted.double.brightscript"
+        patterns: [
+            {
+                include: "#builtin_classes"
+            }
+        ]
+    }
 ]
 repository:
-    rem:
-        name: "comment.line.rem.brightscript"
-        match: "(?i:rem\s).*$"
-    comment:
-        name: "comment.line.quote.brightscript"
-        match: "'.*$"
-    sdk1_components:
+    builtin_classes:
+        match: "\\b(?i:(if(?:App(Info|Manager)|Array(Get|Join|Set|Sort)?|AssociativeArray|Audio(Guide|Metadata|Player|Resource)|Boolean|ByteArray|CaptionRenderer|ChannelStore|CodeRegistrationScreen|Compositor|DateTime|DeviceInfo|Double|Draw2D|Enum|EVP(Cipher|Digest)|FileSystem|Float|Font(Metrics|Registry)?|Function|GetMessagePort|GridScreen|HdmiStatus|HMAC|HttpAgent|Image(Canvas|Metadata)|Input|Int(Ops)?|KeyboardScreen|List(Screen|ToArray)?|Localization|LongInt|Message(Dialog|Port)|Microphone|OneLineDialog|ParagraphScreen|Path|PinEntryDialog|PosterScreen|Regex|Region|Registry(Section)?|RSA|Screen|Search(History|Screen)|SetMessagePort|SlideShow|Socket(Address|Async|CastOption|Connection|ConnectionOption|ConnectionStatus|Option|Status)?|SourceIdentity|SpringboardScreen|Sprite|String(Ops)?|SystemLog|Text(Screen|ToSpeech|ure(Manager|Request))|Timespan|ToStr|UrlTransfer|Video(Player|Screen)|XML(Element|List))|ro(?:AudioPlayerEvent|CaptionRendererEvent|CECStatusEvent|ChannelStoreEvent|CodeRegistrationScreenEvent|DeviceInfoEvent|FileSystemEvent|GridScreenEvent|HdmiHotPlugEvent|HdmiStatusEvent|ImageCanvasEvent|InputEvent|KeyboardScreenEvent|ListScreenEvent|MessageDialogEvent|MicphoneEvent|OneLineDialogEvent|ParagraphScreenEvent|PinEntryDialogEvent|PosterScreenEvent|SearchScreenEvent|SlideShowEvent|SocketEvent|SpringboardScreenEvent|SystemLogEvent|TextScreenEvent|TextToSpeechEvent|TextureRequestEvent|UniversalContlEvent|UrlEvent|VideoPlayerEvent|VideoScreenEvent|AppInfo|AppManager|Array|AssociativeArray|AudioGuide|AudioMetadata|AudioPlayer|AudioResource|Bitmap|Boolean|ByteArray|CaptionRenderer|ChannelStore|CodeRegistrationScreen|Compositor|DataGramSocket|DateTime|DeviceInfo|Double|EVPCipher|EVPDigest|FileSystem|Float|Font|FontMetrics|FontRegistry|Function|GridScreen|HdmiStatus|HMAC|HttpAgent|ImageCanvas|ImageMetadata|Input|Int|Invalid|KeyboardScreen|List|ListScreen|Localization|LongInteger|MessageDialog|MessagePort|Micphone|OneLineDialog|ParagraphScreen|Path|PinEntryDialog|PosterScreen|Regex|Region|Registry|RegistrySection|RSA|Screen|SearchHistory|SearchScreen|SGNode|SlideShow|SocketAddress|SpringboardScreen|Sprite|StreamSocket|String|SystemLog|TextScreen|TextToSpeech|TextureManager|TextureRequest|Timespan|UrlTransfer|VideoPlayer|VideoScreen|XMLElement|XMLList)))\\b"
         name: "support.class.brightscript"
-        match: "(?i:\\b(ifAppInfo|ifAppManager|ifArray|ifArrayGet|ifArrayJoin|ifArraySet|ifArraySort|ifAssociativeArray|ifAudioGuide|ifAudioMetadata|ifAudioPlayer|ifAudioResource|ifBoolean|ifByteArray|ifCaptionRenderer|ifChannelStore|ifCodeRegistrationScreen|ifCompositor|ifDateTime|ifDeviceInfo|ifDouble|ifDraw2D|ifEnum|ifEVPCipher|ifEVPDigest|ifFileSystem|ifFloat|ifFont|ifFontMetrics|ifFontRegistry|ifFunction|ifGetMessagePort|ifGridScreen|ifHdmiStatus|ifHMAC|ifHttpAgent|ifImageCanvas|ifImageMetadata|ifInput|ifInt|ifIntOps|ifKeyboardScreen|ifList|ifListScreen|ifListToArray|ifLocalization|ifLongInt|ifMessageDialog|ifMessagePort|ifMicrophone|ifOneLineDialog|ifParagraphScreen|ifPath|ifPinEntryDialog|ifPosterScreen|ifRegex|ifRegion|ifRegistry|ifRegistrySection|ifRSA|ifScreen|ifSearchHistory|ifSearchScreen|ifSetMessagePort|ifSlideShow|ifSocket|ifSocketAddress|ifSocketAsync|ifSocketCastOption|ifSocketConnection|ifSocketConnectionOption|ifSocketConnectionStatus|ifSocketOption|ifSocketStatus|ifSourceIdentity|ifSpringboardScreen|ifSprite|ifString|ifStringOps|ifSystemLog|ifTextScreen|ifTextToSpeech|ifTextureManager|ifTextureRequest|ifTimespan|ifToStr|ifUrlTransfer|ifVideoPlayer|ifVideoScreen|ifXMLElement|ifXMLList|roAudioPlayerEvent|roCaptionRendererEvent|roCECStatusEvent|roChannelStoreEvent|roCodeRegistrationScreenEvent|roDeviceInfoEvent|roFileSystemEvent|roGridScreenEvent|roHdmiHotPlugEvent|roHdmiStatusEvent|roImageCanvasEvent|roInputEvent|roKeyboardScreenEvent|roListScreenEvent|roMessageDialogEvent|roMicrophoneEvent|roOneLineDialogEvent|roParagraphScreenEvent|roPinEntryDialogEvent|roPosterScreenEvent|roSearchScreenEvent|roSlideShowEvent|roSocketEvent|roSpringboardScreenEvent|roSystemLogEvent|roTextScreenEvent|roTextToSpeechEvent|roTextureRequestEvent|roUniversalControlEvent|roUrlEvent|roVideoPlayerEvent|roVideoScreenEvent|roAppInfo|roAppManager|roArray|roAssociativeArray|roAudioGuide|roAudioMetadata|roAudioPlayer|roAudioResource|roBitmap|roBoolean|roByteArray|roCaptionRenderer|roChannelStore|roCodeRegistrationScreen|roCompositor|roDataGramSocket|roDateTime|roDeviceInfo|roDouble|roEVPCipher|roEVPDigest|roFileSystem|roFloat|roFont|roFontMetrics|roFontRegistry|roFunction|roGridScreen|roHdmiStatus|roHMAC|roHttpAgent|roImageCanvas|roImageMetadata|roInput|roInt|roInvalid|roKeyboardScreen|roList|roListScreen|roLocalization|roLongInteger|roMessageDialog|roMessagePort|roMicrophone|roOneLineDialog|roParagraphScreen|roPath|roPinEntryDialog|roPosterScreen|roRegex|roRegion|roRegistry|roRegistrySection|roRSA|roScreen|roSearchHistory|roSearchScreen|roSGNode|roSlideShow|roSocketAddress|roSpringboardScreen|roSprite|roStreamSocket|roString|roSystemLog|roTextScreen|roTextToSpeech|roTextureManager|roTextureRequest|roTimespan|roUrlTransfer|roVideoPlayer|roVideoScreen|roXMLElement|roXMLList)\\b)"
-    string:
-        name: "string.quoted.double.brightscript"
-        match: "\"(?:[^\"\\\\]+|\\\\.)*\""
     program_statements:
         name: "keyword.control.brightscript"
         match: "(?i:\\b(as|each|else|end for|end function|end if|end sub|end while|for|for each|function|if|in|next|return|step|stop|sub|then|to|while|and|not|or|end|dim|stop|goto|print)\\b)"
