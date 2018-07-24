@@ -86,7 +86,7 @@ repository:
         name: "support.class.brightscript"
     program_statements:
         name: "keyword.control.brightscript"
-        match: "(?i:\\b(as|each|else|end for|end function|end if|end sub|end while|for|for each|function|if|in|next|return|step|stop|sub|then|to|while|and|not|or|end|dim|stop|goto|print)\\b)"
+        match: "(?i:\\b(as|each|else|end for|end function|end if|end sub|end while|for|for each|function|if|in|next|return|step|stop|sub|then|to|while|and|not|or|end|dim|stop|goto|print|mod)\\b)"
     constants:
         name: "constant.numeric.brightscript"
         match: "(?i:\\b([0-9]+|false|invalid|true)\\b)"
