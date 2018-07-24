@@ -51,7 +51,7 @@ patterns: [
     }
     {
         name: "constant.other.brightscript"
-        match: "(?<=m\\.)(?i:global|top)"
+        match: "(?<=m\\.)(?i:global|top)\\b"
     }
     {
         name: "constant.other.brightscript"
