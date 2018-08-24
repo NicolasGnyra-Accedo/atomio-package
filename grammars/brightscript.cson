@@ -67,6 +67,9 @@ patterns: [
         include: "#string_functions"
     }
     {
+        include: "#math_functions"
+    }
+    {
         include: "#methods"
     }
     {
