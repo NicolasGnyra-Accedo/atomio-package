@@ -101,13 +101,13 @@ repository:
         match: "(?i:\\b(Boolean|Integer|LongInteger|Float|Double|String|Object|Function|Interface|Dynamic)\\b)"
     runtime_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:CreateObject|Type|GetGlobalAA|Box|Run|Run|Eval|GetLastRunCompileError|GetLastRunRuntimeError)(?=\\()"
+        match: "\\b(?<!\\.)(?i:CreateObject|Type|GetGlobalAA|Box|Run|Run|Eval|GetLastRunCompileError|GetLastRunRuntimeError)(?=\\()"
     utility_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:Sleep|Wait|GetInterface|FindMemberFunction|UpTime|RebootSystem|ListDir|ReadAsciiFile|WriteAsciiFile|CopyFile|MoveFile|MatchFiles|DeleteFile|DeleteDirectory|CreateDirectory|FormatDrive|StrToI|RunGarbageCollector|ParseJson|FormatJson|Tr)(?=\\()"
+        match: "\\b(?<!\\.)(?i:Sleep|Wait|GetInterface|FindMemberFunction|UpTime|RebootSystem|ListDir|ReadAsciiFile|WriteAsciiFile|CopyFile|MoveFile|MatchFiles|DeleteFile|DeleteDirectory|CreateDirectory|FormatDrive|StrToI|RunGarbageCollector|ParseJson|FormatJson|Tr)(?=\\()"
     string_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:UCase|LCase|Asc|Chr|Instr|Left|Len|Mid|Right|Str|StrI|StrI|String|StringI|Val|Val|Substitute)(?=\\()"
+        match: "\\b(?<!\\.)(?i:UCase|LCase|Asc|Chr|Instr|Left|Len|Mid|Right|Str|StrI|StrI|String|StringI|Val|Val|Substitute)(?=\\()"
     math_functions:
         name: "support.function.brightscript"
-        match: "\\b(?i:Abs|Atn|Cdbl|Cint|Cos|Csng|Exp|Fix|Int|Log|Rnd|Rnd|Sgn|Sgn|Sin|Sqr|Tan)(?=\\()"
+        match: "\\b(?<!\\.)(?i:Abs|Atn|Cdbl|Cint|Cos|Csng|Exp|Fix|Int|Log|Rnd|Rnd|Sgn|Sgn|Sin|Sqr|Tan)(?=\\()"
